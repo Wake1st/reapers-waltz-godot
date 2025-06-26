@@ -13,7 +13,6 @@ const FRAME_SPEED: float = 0.15
 @onready var sprite: Sprite2D = $Sprite2D
 
 var frameCounter: float
-var isFrozen: bool
 
 
 func move(vector: Vector2) -> void:

@@ -13,10 +13,10 @@ const DOCILE = preload("res://assets/spritesheets/Enemy_blue_evil_non-hos.png")
 const HOSTILE = preload("res://assets/spritesheets/Enemy_blue_evil.png")
 
 const IDLE_TIME: float = 2.5
-const ENEMY_SPEED: float = 85
-const PURSUE_DISTANCE: float = 200
-const CAUGHT_DISTANCE: float = 20
-const PATROL_DISTANCE: float = 0.1
+const ENEMY_SPEED: float = 65
+const PURSUE_DISTANCE: float = 280
+const CAUGHT_DISTANCE: float = 15
+const PATROL_DISTANCE: float = 1
 
 @export var patrolPoints: Array[Vector2]
 
@@ -31,14 +31,11 @@ var target: Vector2
 
 
 func _ready() -> void:
-	target = patrolPoints[0]
-	actor.position = target
-	idleTimer = IDLE_TIME
+	reset()
 
 
 func _physics_process(delta) -> void:
 	var direction := Vector2.ZERO
-	
 	match (state):
 		EnemyState.IDLE:
 			idleTimer -= delta
@@ -52,40 +49,52 @@ func _physics_process(delta) -> void:
 			actor.move(direction * ENEMY_SPEED * delta)
 			
 			# check for arrival
-			if (actor.position.distance_to(target) < PATROL_DISTANCE):
-				actor.position = target
+			if (actor.global_position.distance_to(target) < PATROL_DISTANCE):
+				actor.global_position = target
+				state = EnemyState.IDLE
 		EnemyState.PURSUIT:
 			direction = _get_direction()
 			actor.move(direction * ENEMY_SPEED * delta)
-			
-			_check_caught()
 	
 	actor.animate(direction, delta)
 
 
+func reset() -> void:
+	pointIndex = 0
+	target = patrolPoints[pointIndex]
+	actor.global_position = target
+	idleTimer = IDLE_TIME
+
+
+func in_pursuit() -> bool:
+	return state == EnemyState.PURSUIT
+
+
 func check_pursuit(checkPosition: Vector2) -> bool:
-	if (actor.position.distance_to(checkPosition) < PURSUE_DISTANCE):
+	if (actor.global_position.distance_to(checkPosition) < PURSUE_DISTANCE):
 		target = checkPosition
-		_enter_pursuit()
+		if (state != EnemyState.PURSUIT):
+			_enter_pursuit()
 		return true
 	else:
 		return false
 
 
-func _check_caught() -> bool:
-	if (actor.position.distance_to(target)):
-		_exit_pursuit()
+func check_caught(pos: Vector2) -> bool:
+	if (actor.global_position.distance_to(pos) < CAUGHT_DISTANCE):
+		exit_pursuit()
 		return true
 	else:
 		return false
+
 
 func _enter_pursuit() -> void:
 	state = EnemyState.PURSUIT
-		# swap out texture
+	actor.texture = HOSTILE
 
-func _exit_pursuit() -> void:
+func exit_pursuit() -> void:
 	state = EnemyState.IDLE
-		# swap out texture
+	actor.texture = DOCILE
 
 func _get_direction() -> Vector2:
-	return actor.position.direction_to(target)
+	return actor.global_position.direction_to(target)
