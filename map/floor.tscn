@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbed5j5j8wpim"]
+
+[ext_resource type="Texture2D" uid="uid://pt3faa6ffh62" path="res://assets/images/Ground_Tile.png" id="1_607va"]
+
+[node name="Floor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.036, 0.036)
+texture = ExtResource("1_607va")
