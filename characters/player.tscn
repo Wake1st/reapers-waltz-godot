@@ -8,6 +8,7 @@
 script = ExtResource("1_3eadt")
 
 [node name="Actor" parent="." instance=ExtResource("2_tory2")]
+isPlayer = true
 texture = ExtResource("3_tory2")
 
 [node name="Camera2D" type="Camera2D" parent="Actor"]

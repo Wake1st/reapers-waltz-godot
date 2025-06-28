@@ -1,9 +1,10 @@
 class_name Actor
-extends Node2D
+extends CharacterBody2D
 
 
 const FRAME_SPEED: float = 0.15
 
+@export var isPlayer: bool = false
 @export var texture: Texture2D:
 	set(value):
 		texture = value
@@ -40,3 +41,9 @@ func animate(direction: Vector2, delta: float) -> void:
 			sprite.frame_coords.y = 2
 		elif (direction.x < 0.0):
 			sprite.frame_coords.y = 1
+
+
+func _process(delta) -> void:
+	match Game.state:
+		Game.State.DEATH:
+			pass

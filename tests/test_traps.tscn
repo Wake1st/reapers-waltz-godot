@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd3goipb65yy4"]
+
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="1_87ayi"]
+[ext_resource type="Script" uid="uid://d14o81npw7cp2" path="res://tests/test_traps.gd" id="1_u4pcy"]
+[ext_resource type="PackedScene" uid="uid://ch1yuxlniflad" path="res://triggers/traps/crush_trap.tscn" id="2_u4pcy"]
+[ext_resource type="PackedScene" uid="uid://ci5ncmwddrruf" path="res://triggers/traps/spike_trap.tscn" id="3_1166l"]
+
+[node name="TestTraps" type="Node2D"]
+script = ExtResource("1_u4pcy")
+
+[node name="Player" parent="." instance=ExtResource("1_87ayi")]
+
+[node name="CrushTrap" parent="." instance=ExtResource("2_u4pcy")]
+position = Vector2(72, -182)
+
+[node name="SpikeTrap" parent="." instance=ExtResource("3_1166l")]
+position = Vector2(-86, -182)
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 1.4
+one_shot = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

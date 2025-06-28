@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://ct68s8c0gswbt" path="res://assets/spritesheets/pc_sprite_sheet.png" id="1_nwt1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2wky"]
-size = Vector2(38, 98)
+size = Vector2(28, 28)
 
 [node name="Actor" type="CharacterBody2D"]
-platform_floor_layers = 4294967100
+platform_floor_layers = 4294901820
 platform_wall_layers = 2
 script = ExtResource("1_n2wky")
 
@@ -18,5 +18,5 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -53)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_n2wky")
