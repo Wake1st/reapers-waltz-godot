@@ -5,20 +5,20 @@ extends Node2D
 @export var speed: float = 145
 
 @onready var actor: Actor = $Actor
-@onready var camera: Camera2D = %Camera2D
+@onready var camera: Camera = %Camera
 
 var isFrozen: bool
 
 
 func _physics_process(delta) -> void:
 	# take control from user
-	if isFrozen:
+	if isFrozen || Game.state != Game.State.PLAY:
 		return
 	
 	var direction = InputHandler.get_direction()
 	
 	actor.animate(direction, delta)
-	if (direction != Vector2.ZERO && !isFrozen):
+	if (direction != Vector2.ZERO):
 		actor.move(direction * speed * delta)
 
 

@@ -8,4 +8,5 @@
 script = ExtResource("1_1ohc2")
 
 [node name="Actor" parent="." instance=ExtResource("1_wa0eo")]
+collision_layer = 8
 texture = ExtResource("3_ggbst")

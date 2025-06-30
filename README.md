@@ -4,42 +4,22 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 
 ## Conversion
 
-- [ ] testing
-	- [x] movement
-	- [ ] maps
-	- [ ] UI
-		- [ ] main menu
-		- [ ] pause
-		- [ ] dialogue
-		- [ ] tapestry of death
-	- [ ] textures
-		- [ ] still
-		- [x] animations
-	- [ ] collisions
-		- [ ] walls
-		- [ ] triggers
-	- [ ] sounds
-	- [ ] levels
-		- [ ] exit
-		- [ ] death record
-	- [ ] achievements
-- [ ] controls
+- [x] controls
 	- [x] movement  | arrow keys
-	- [ ] action    | x
+	- [x] action    | x
 - [x] actors
 	- [x] player
 	- [x] enemy
-- [ ] map
-	- [ ] generate walls
-	- [ ] floor
 - [ ] collisions
 	- [ ] walls
-	- [ ] triggers
+	- [x] triggers
 	- [x] enemy
-	- [ ] dialogue
+	- [x] dialogue
+- [x] moving camera
+- [x] final chase
 - [ ] sounds
 	- [ ] music
-	- [ ] sfx
+	- [x] sfx
 - [ ] vfx
 	- [ ] particles
 - [ ] level
@@ -51,8 +31,7 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 - [ ] UI
 	- [ ] main menu
 	- [ ] pause
-	- [ ] dialogue
+	- [x] dialogue
 	- [ ] tapestry of death
 - [ ] cutscene
-- [ ] moving camera
 - [ ] lighting
