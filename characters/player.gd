@@ -5,6 +5,7 @@ extends Node2D
 @export var speed: float = 145
 
 @onready var actor: Actor = $Actor
+@onready var camera: Camera2D = %Camera2D
 
 var isFrozen: bool
 

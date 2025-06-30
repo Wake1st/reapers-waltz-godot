@@ -43,7 +43,7 @@ func animate(direction: Vector2, delta: float) -> void:
 			sprite.frame_coords.y = 1
 
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	match Game.state:
 		Game.State.DEATH:
 			pass

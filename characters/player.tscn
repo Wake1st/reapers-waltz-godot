@@ -12,3 +12,4 @@ isPlayer = true
 texture = ExtResource("3_tory2")
 
 [node name="Camera2D" type="Camera2D" parent="Actor"]
+unique_name_in_owner = true

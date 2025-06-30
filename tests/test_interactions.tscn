@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://q7fgrattwy03"]
+
+[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/dialogue.tscn" id="1_ncuk8"]
+[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="1_xkolb"]
+[ext_resource type="PackedScene" uid="uid://c3k0ppgg5ucba" path="res://triggers/interactable.tscn" id="2_j5o7t"]
+[ext_resource type="Texture2D" uid="uid://cuhxsteag010t" path="res://assets/images/music_box.png" id="3_d4uww"]
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="4_d4uww"]
+
+[node name="TestInteractions" type="Node"]
+
+[node name="Interactable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("2_j5o7t")]
+image = ExtResource("3_d4uww")
+popup = NodePath("../CanvasLayer/Dialogue")
+
+[node name="Player" parent="." instance=ExtResource("4_d4uww")]
+position = Vector2(0, 264)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractText" parent="CanvasLayer" instance=ExtResource("1_xkolb")]
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("1_ncuk8")]
+questionText = "There’s a sword stuck into the ground here, touch it?"
+responseText = "As you touch the sword the world around you fades to a shimmering, glassy vision. It's the same room but not in the same time. You see a figure straining under the weight of an immense pillar of stone, leveraging his sword against the ground to hold up the crushing weight as a lithe feminine figure in simple brown robes frantically scuttles away from underneath it. You see the seed of a tear glinting in his eye before the world is shaken by a resounding crash."

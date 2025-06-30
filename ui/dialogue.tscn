@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://6lypf7h1xle8"]
+
+[ext_resource type="Script" uid="uid://d05ebm3rmm58d" path="res://ui/dialogue.gd" id="1_fm7tp"]
+[ext_resource type="Texture2D" uid="uid://dl6kuj1xhnmaw" path="res://assets/ui/menu_background.png" id="2_xl33q"]
+[ext_resource type="StyleBox" uid="uid://cpkabfqo30ngd" path="res://ui/materials/btn_hover.tres" id="3_tqx3j"]
+[ext_resource type="StyleBox" uid="uid://d210qles7wegj" path="res://ui/materials/btn_press.tres" id="4_qwm1w"]
+[ext_resource type="StyleBox" uid="uid://c80rvkhbm8odw" path="res://ui/materials/btn_normal.tres" id="5_wyt3e"]
+[ext_resource type="Texture2D" uid="uid://juc273gfppqs" path="res://assets/ui/RESUME_final.png" id="6_qwm1w"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fm7tp")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -746.5
+offset_top = -420.0
+offset_right = 746.5
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xl33q")
+
+[node name="Question" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_top = 91.0
+offset_right = 640.0
+offset_bottom = 271.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
+theme_override_font_sizes/font_size = 64
+text = "There's a sword stuck into the ground here... do you take it?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="NoBtn" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -575.0
+offset_top = -70.0
+offset_right = -125.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/hover = ExtResource("3_tqx3j")
+theme_override_styles/pressed = ExtResource("4_qwm1w")
+theme_override_styles/normal = ExtResource("5_wyt3e")
+text = "NO"
+
+[node name="YesBtn" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 125.0
+offset_top = -70.0
+offset_right = 575.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
+theme_override_font_sizes/font_size = 64
+theme_override_styles/hover = ExtResource("3_tqx3j")
+theme_override_styles/pressed = ExtResource("4_qwm1w")
+theme_override_styles/normal = ExtResource("5_wyt3e")
+text = "YES"
+
+[node name="Response" type="Label" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -637.0
+offset_top = -357.0
+offset_right = 637.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
+theme_override_font_sizes/font_size = 38
+text = "As you open the music box a sweeping symphony surrounds you and the world fades to a vision of this room in a different time. A woman who looks barely out of her adolescence cradles a music box. She radiates a defiantly hopeful energy as she prepares herself to leave the room. She mutters to herself “If i’m here only to die then I shall face it on my own terms” abandoning the music box she strides out of the room. A few seconds of silence pass before the echoing  halls are filled with the sound of a scuffle before falling eerily quiet once more."
+horizontal_alignment = 3
+autowrap_mode = 2
+
+[node name="ResumeBtn" type="TextureButton" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -169.0
+offset_right = 128.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_qwm1w")
+
+[connection signal="pressed" from="Panel/NoBtn" to="." method="_on_no_btn_pressed"]
+[connection signal="pressed" from="Panel/YesBtn" to="." method="_on_yes_btn_pressed"]
+[connection signal="pressed" from="Panel/ResumeBtn" to="." method="_on_resume_btn_pressed"]
