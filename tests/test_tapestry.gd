@@ -3,6 +3,8 @@ extends Node
 
 @onready var crush: CrushTrap = $CrushTrap
 @onready var spike: SpikeTrap = $SpikeTrap
+@onready var water: WaterTrap = $WaterTrap
+@onready var fall: FallTrap = $FallTrap
 @onready var player: Player = $Player
 @onready var enemy: Enemy = $Enemy
 @onready var timer: Timer = $Timer
@@ -39,10 +41,10 @@ func _animate_death() -> void:
 	match Death.active:
 		Death.Type.NONE:
 			return
-		Death.Type.CRUSH:
+		Death.Type.DROWN, Death.Type.FALL:
 			player.visible = false
-		Death.Type.SPIKE:
-			player.actor.rotate(-PI/5)
+		Death.Type.SPIKE, Death.Type.CRUSH:
+			player.actor.rotate(randf_range(-PI/5, PI/5))
 	
 	# should run once
 	timer.start()

@@ -1,5 +1,5 @@
 class_name Trigger
-extends Node2D
+extends Area2D
 
 
 func _ready() -> void:

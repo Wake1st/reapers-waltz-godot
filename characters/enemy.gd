@@ -21,6 +21,7 @@ const PATROL_DISTANCE: float = 1
 @export var patrolPoints: Array[Vector2]
 
 @onready var actor: Actor = $Actor
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var state: EnemyState
 
@@ -84,6 +85,7 @@ func check_caught(checkPosition: Vector2) -> bool:
 	if (actor.global_position.distance_to(checkPosition) < CAUGHT_DISTANCE):
 		exit_pursuit()
 		Achievements.add(Achievements.Type.ENEMY)
+		audio.play()
 		return true
 	else:
 		return false
