@@ -2,16 +2,7 @@ class_name CrushTrap
 extends Trigger
 
 
-enum TrapType {
-	SPIKE,
-	CRUSH,
-	WATER,
-	PIT
-}
-
 const MAX_FRAME: int = 5
-
-@export var type: TrapType
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -30,6 +21,7 @@ func _process(_delta) -> void:
 			# kill the player
 			isAnimating = false
 			Game.state = Game.State.DEATH
+			Achievements.add(Achievements.Type.CRUSHING)
 	elif Game.state == Game.State.SETUP:
 		reset()
 

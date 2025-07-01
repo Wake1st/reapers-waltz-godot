@@ -11,15 +11,16 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 	- [x] player
 	- [x] enemy
 - [ ] collisions
-	- [ ] walls
 	- [x] triggers
 	- [x] enemy
 	- [x] dialogue
+	- [ ] walls
 - [x] moving camera
 - [x] final chase
+- [x] achievements
 - [ ] sounds
-	- [ ] music
 	- [x] sfx
+	- [ ] music
 - [ ] vfx
 	- [ ] particles
 - [ ] level
@@ -27,11 +28,10 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 	- [ ] death record
 	- [ ] win state
 	- [ ] exit
-- [ ] achievements
 - [ ] UI
+	- [x] dialogue
+	- [x] tapestry of death
 	- [ ] main menu
 	- [ ] pause
-	- [x] dialogue
-	- [ ] tapestry of death
 - [ ] cutscene
 - [ ] lighting

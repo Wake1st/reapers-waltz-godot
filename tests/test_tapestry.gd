@@ -1,10 +1,11 @@
-extends Node2D
+extends Node
 
 
-@onready var player: Player = $Player
 @onready var crush: CrushTrap = $CrushTrap
 @onready var spike: SpikeTrap = $SpikeTrap
-@onready var timer: Timer = $DeathTimer
+@onready var player: Player = $Player
+@onready var enemy: Enemy = $Enemy
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
@@ -19,7 +20,15 @@ func _process(_delta) -> void:
 			crush.reset()
 			Game.state = Game.State.PLAY
 		Game.State.PLAY:
-			pass
+			var playerPosition = player.get_actor_position() 
+			if (enemy.in_pursuit()):
+				if (enemy.check_caught(playerPosition)):
+					player.reset(Vector2.ZERO)
+					enemy.reset()
+				elif (!enemy.check_pursuit(playerPosition)):
+					enemy.exit_pursuit()
+			else:
+				enemy.check_pursuit(playerPosition)
 		Game.State.DEATH:
 			_animate_death()
 			player.isFrozen = true
@@ -27,7 +36,6 @@ func _process(_delta) -> void:
 
 func _animate_death() -> void:
 	# play unique animation
-	print("timer: ", timer.time_left)
 	match Death.active:
 		Death.Type.NONE:
 			return
@@ -40,6 +48,5 @@ func _animate_death() -> void:
 	timer.start()
 	Death.active = Death.Type.NONE
 
-
-func _on_death_timer_timeout():
+func _on_timer_timeout():
 	Game.state = Game.State.SETUP

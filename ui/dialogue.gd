@@ -2,9 +2,16 @@ class_name Dialogue
 extends Control
 
 
+enum Type {
+	SWORD,
+	MUSIC,
+	AMULET,
+}
+
 const OPENED: float = 0.0
 const CLOSED: float = 870.0
 
+@export var type: Type
 @export var questionText: String
 @export var responseText: String
 
@@ -35,11 +42,14 @@ func reset() -> void:
 
 
 func _ready() -> void:
+	question.text = questionText
+	response.text = responseText
+	panel.position.y = CLOSED
 	reset()
 
 func _process(_delta) -> void:
 	if isAnimating:
-		panel.position.y = lerp(panel.position.y, target, 0.9)
+		panel.position.y = lerp(panel.position.y, target, 0.8)
 		if is_equal_approx(panel.position.y, target):
 			panel.position.y = target
 			isAnimating = false
@@ -53,6 +63,7 @@ func _on_yes_btn_pressed() -> void:
 
 func _on_resume_btn_pressed() -> void:
 	close()
+	_add_achievement()
 
 
 func _toggle_stage(value: bool) -> void:
@@ -65,3 +76,12 @@ func _toggle_stage(value: bool) -> void:
 	response.visible = !value
 	resumeBtn.disabled = value
 	resumeBtn.visible = !value
+
+func _add_achievement() -> void:
+	match type:
+		Type.SWORD:
+			Achievements.add(Achievements.Type.SWORD)
+		Type.MUSIC:
+			Achievements.add(Achievements.Type.MUSIC_BOX)
+		Type.AMULET:
+			Achievements.add(Achievements.Type.AMULET)

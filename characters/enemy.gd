@@ -13,7 +13,7 @@ const DOCILE = preload("res://assets/spritesheets/Enemy_blue_evil_non-hos.png")
 const HOSTILE = preload("res://assets/spritesheets/Enemy_blue_evil.png")
 
 const IDLE_TIME: float = 2.5
-const CAUGHT_DISTANCE: float = 15
+const CAUGHT_DISTANCE: float = 30
 const PATROL_DISTANCE: float = 1
 
 @export var pursueDistance: float = 280
@@ -31,7 +31,6 @@ var target: Vector2
 
 
 func _ready() -> void:
-	#actor.set_platform_floor_layers(0xFFFFFFFF)
 	reset()
 
 
@@ -84,6 +83,7 @@ func check_pursuit(checkPosition: Vector2) -> bool:
 func check_caught(checkPosition: Vector2) -> bool:
 	if (actor.global_position.distance_to(checkPosition) < CAUGHT_DISTANCE):
 		exit_pursuit()
+		Achievements.add(Achievements.Type.ENEMY)
 		return true
 	else:
 		return false
@@ -99,3 +99,8 @@ func exit_pursuit() -> void:
 
 func _get_direction() -> Vector2:
 	return actor.global_position.direction_to(target)
+
+
+func _on_body_entered(body: Actor) -> void:
+	if body.isPlayer:
+		pass

@@ -17,7 +17,7 @@ var frameCounter: float
 
 
 func move(vector: Vector2) -> void:
-	position += vector
+	move_and_collide(vector)
 
 
 func animate(direction: Vector2, delta: float) -> void:

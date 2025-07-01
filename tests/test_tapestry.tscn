@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://b73t87eec3okw"]
+
+[ext_resource type="Script" uid="uid://dg1rq8hacwmj4" path="res://tests/test_tapestry.gd" id="1_4qajd"]
+[ext_resource type="PackedScene" uid="uid://dlei3epj57b8k" path="res://ui/tapestry.tscn" id="1_rd2bv"]
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="2_ve7bk"]
+[ext_resource type="PackedScene" uid="uid://cd6j42v2fgf52" path="res://characters/enemy.tscn" id="3_4qajd"]
+[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/dialogue.tscn" id="3_lmpc7"]
+[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="4_8bjkw"]
+[ext_resource type="PackedScene" uid="uid://c3k0ppgg5ucba" path="res://triggers/interactable.tscn" id="4_g67dk"]
+[ext_resource type="PackedScene" uid="uid://ch1yuxlniflad" path="res://triggers/traps/crush_trap.tscn" id="5_eeyff"]
+[ext_resource type="PackedScene" uid="uid://ci5ncmwddrruf" path="res://triggers/traps/spike_trap.tscn" id="6_bxnxo"]
+[ext_resource type="Texture2D" uid="uid://bav66xewh5sea" path="res://assets/images/amulet.png" id="6_lmpc7"]
+[ext_resource type="Texture2D" uid="uid://cuhxsteag010t" path="res://assets/images/music_box.png" id="7_8bjkw"]
+[ext_resource type="Texture2D" uid="uid://35rlscph1fwa" path="res://assets/images/sword.png" id="8_jdoac"]
+
+[node name="TestTapestry" type="Node"]
+script = ExtResource("1_4qajd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Tapestry" parent="CanvasLayer" instance=ExtResource("1_rd2bv")]
+
+[node name="InteractText" parent="CanvasLayer" instance=ExtResource("4_8bjkw")]
+
+[node name="SwordDialogue" parent="CanvasLayer" instance=ExtResource("3_lmpc7")]
+questionText = "There’s a sword stuck into the ground here, touch it?"
+responseText = "As you touch the sword the world around you fades to a shimmering, glassy vision. It's the same room but not in the same time. You see a figure straining under the weight of an immense pillar of stone, leveraging his sword against the ground to hold up the crushing weight as a lithe feminine figure in simple brown robes frantically scuttles away from underneath it. You see the seed of a tear glinting in his eye before the world is shaken by a resounding crash."
+
+[node name="MusicDialogue" parent="CanvasLayer" instance=ExtResource("3_lmpc7")]
+type = 1
+questionText = "A music box sits closed on the floor, open it?"
+responseText = "As you open the music box a sweeping symphony surrounds you and the world fades to a vision of this room in a different time. A woman who looks barely out of her adolescence cradles a music box. She radiates a defiantly hopeful energy as she prepares herself to leave the room. She mutters to herself “If i’m here only to die then I shall face it on my own terms” abandoning the music box she strides out of the room. A few seconds of silence pass before the echoing  halls are filled with the sound of a scuffle before falling eerily quiet once more."
+
+[node name="AmuletDialogue" parent="CanvasLayer" instance=ExtResource("3_lmpc7")]
+type = 2
+questionText = "An amulet lies on the ground here, surrounded by a makeshift shrine to a god you don’t recognise, touch the amulet?"
+responseText = "As you touch the amulet the world around you is consumed by a blinding light. When the light recedes you see the shrine in a different time, what appears to be a man of the cloth prostrate before his shrine, clutching the amulet muttering prayers in a language long lost to time. He is so engrossed in his worship he fails to notice the creature approaching from around the corner. You try to call out to him, to warn him but the sound falls dead in your throat. There is nothing you can do but watch as this creature of the darkness tears him limb from limb."
+
+[node name="Player" parent="." instance=ExtResource("2_ve7bk")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_4qajd")]
+position = Vector2(414, 283)
+pursueDistance = 150.0
+patrolPoints = Array[Vector2]([Vector2(396, -262), Vector2(414, 283)])
+
+[node name="SwordInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("4_g67dk")]
+position = Vector2(-131, 210)
+image = ExtResource("8_jdoac")
+popup = NodePath("../CanvasLayer/SwordDialogue")
+
+[node name="AmuletInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("4_g67dk")]
+position = Vector2(132, 211)
+image = ExtResource("6_lmpc7")
+popup = NodePath("../CanvasLayer/AmuletDialogue")
+
+[node name="MusicInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("4_g67dk")]
+position = Vector2(0, 211)
+image = ExtResource("7_8bjkw")
+popup = NodePath("../CanvasLayer/MusicDialogue")
+
+[node name="CrushTrap" parent="." instance=ExtResource("5_eeyff")]
+position = Vector2(-160, -294)
+
+[node name="SpikeTrap" parent="." instance=ExtResource("6_bxnxo")]
+position = Vector2(-57, -260)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
