@@ -24,8 +24,8 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 - [ ] vfx
 	- [ ] particles
 - [ ] level
-	- [ ] loading
 	- [ ] death record
+	- [ ] loading
 	- [ ] win state
 	- [ ] exit
 - [ ] UI
