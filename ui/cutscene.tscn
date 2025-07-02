@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsw5dcqc41xwn"]
+[gd_scene load_steps=5 format=3 uid="uid://dsw5dcqc41xwn"]
 
 [ext_resource type="Script" uid="uid://bnp7gn1wddae5" path="res://ui/cutscene.gd" id="1_8tbgj"]
 [ext_resource type="Texture2D" uid="uid://dppbq6nval3ja" path="res://assets/images/Opening.png" id="1_hulut"]
 [ext_resource type="AudioStream" uid="uid://d08s4oddbjyey" path="res://assets/audio/death.ogg" id="3_3esgx"]
+[ext_resource type="AudioStream" uid="uid://ddi14b5r4asqc" path="res://assets/music/the rabbit hole.wav" id="4_6dir8"]
 
 [node name="Cutscene" type="Control"]
 layout_mode = 3
@@ -33,10 +34,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_3esgx")
-volume_db = 15.0
+volume_db = 23.0
 pitch_scale = 0.62
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6dir8")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
