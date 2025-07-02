@@ -1,0 +1,84 @@
+class_name Cutscene
+extends Control
+
+
+signal finished()
+
+enum Stage {
+	FADE_IN,
+	ROOM,
+	BLANK,
+	FADE_OUT,
+}
+
+const IMAGE_RATIO: float = 0.6
+const FINAL_SCALE: float = 1.7
+const FINAL_POSITION: Vector2 = Vector2(-148, -446)
+const FADE_IN_DURATION: float = 4.2
+const ROOM_DURATION: float = 19.0
+const BLANK_DURATION: float = 2.8
+const FADE_OUT_DURATION: float = 3.6
+
+@onready var shot: TextureRect = $TextureRect
+@onready var blank: ColorRect = $ColorRect
+@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var timer: Timer = $Timer
+
+var stage: Stage
+var tween: Tween
+
+
+func start() -> void:
+	_fade_in()
+
+
+func reset() -> void:
+	stage = Stage.FADE_IN
+	timer.stop()
+	blank.visible = false
+	blank.color.a = 1.0
+	shot.size = Vector2(1400, 840)
+	shot.position = Vector2.ZERO
+
+
+func _fade_in() -> void:
+	stage = Stage.FADE_IN
+	tween = create_tween()
+	tween.tween_property(blank, "color:a", 0.0, FADE_IN_DURATION
+		).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_callback(_stage_finished)
+
+func _room() -> void:
+	stage = Stage.ROOM
+	tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(shot, "size", size * FINAL_SCALE, ROOM_DURATION
+		).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(shot, "position", FINAL_POSITION, ROOM_DURATION
+		).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+	tween.set_parallel(false)
+	tween.tween_callback(_stage_finished)
+
+func _black() -> void:
+	stage = Stage.BLANK
+	blank.color.a = 1.0
+	shot.visible = false
+	audio.play()
+	timer.start(BLANK_DURATION)
+
+func _fade_out() -> void:
+	stage = Stage.FADE_OUT
+	tween = create_tween()
+	tween.tween_property(blank, "color:a", 0.0, FADE_OUT_DURATION)
+	tween.tween_callback(_stage_finished)
+
+func _stage_finished() -> void:
+	match stage:
+		Stage.FADE_IN:
+			_room()
+		Stage.ROOM:
+			_black()
+		Stage.BLANK:
+			_fade_out()
+		Stage.FADE_OUT:
+			emit_signal("finished")

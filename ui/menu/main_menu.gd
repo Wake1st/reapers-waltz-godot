@@ -22,13 +22,11 @@ var isAnimating: bool
 func open() -> void:
 	target = OPENED
 	isAnimating = true
-	Game.state = Game.State.START
 
 
 func close() -> void:
 	target = CLOSED
 	isAnimating = true
-	Game.state = Game.State.PLAY
 
 
 func _ready() -> void:
