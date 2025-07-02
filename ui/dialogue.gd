@@ -38,13 +38,13 @@ func close() -> void:
 
 
 func reset() -> void:
+	panel.position.y = CLOSED
 	_toggle_stage(true)
 
 
 func _ready() -> void:
 	question.text = questionText
 	response.text = responseText
-	panel.position.y = CLOSED
 	reset()
 
 func _process(_delta) -> void:

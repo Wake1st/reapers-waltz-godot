@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8h5ahh202q6k"]
+
+[ext_resource type="Script" uid="uid://pqjqi8s4w5nh" path="res://ui/menu/achievement_menu.gd" id="1_md8pu"]
+[ext_resource type="Texture2D" uid="uid://dl6kuj1xhnmaw" path="res://assets/ui/menu_background.png" id="2_meal7"]
+[ext_resource type="PackedScene" uid="uid://bvku0oa26quc3" path="res://ui/menu/achievement_record.tscn" id="3_meal7"]
+[ext_resource type="Texture2D" uid="uid://cih8d4frvfi2o" path="res://assets/ui/MENU_final.png" id="3_p8p1q"]
+
+[node name="AchievementMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_md8pu")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_meal7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 96
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 96
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AchievementRecord" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Crushed"
+type = 2
+
+[node name="AchievementRecord2" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Spiked"
+type = 6
+
+[node name="AchievementRecord3" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Drown"
+type = 3
+
+[node name="AchievementRecord4" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "The Pit"
+type = 8
+
+[node name="AchievementRecord5" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Enemy"
+type = 4
+
+[node name="AchievementRecord6" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Sword"
+type = 7
+
+[node name="AchievementRecord7" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Music Box"
+type = 5
+
+[node name="AchievementRecord8" parent="Panel/MarginContainer/VBoxContainer" instance=ExtResource("3_meal7")]
+layout_mode = 2
+text = "Amulet"
+type = 1
+
+[node name="MenuBtn" type="TextureButton" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -171.0
+offset_right = 128.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_p8p1q")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Panel/MenuBtn" to="." method="_on_menu_btn_pressed"]
