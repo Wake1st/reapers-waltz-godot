@@ -31,10 +31,6 @@ var pointIndex: int
 var target: Vector2
 
 
-func _ready() -> void:
-	reset()
-
-
 func _physics_process(delta) -> void:
 	var direction := Vector2.ZERO
 	match (state):

@@ -2,6 +2,11 @@ class_name WaterTrap
 extends Trigger
 
 
+@export var size: Vector2:
+	set(value):
+		size = value
+		if has_node("CollisionShape2D"):
+			get_node("CollisionShape2D").shape.size = value
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 

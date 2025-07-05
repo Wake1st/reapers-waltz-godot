@@ -12,10 +12,6 @@ extends Area2D
 var isActive: bool
 
 
-func _ready() -> void:
-	reset()
-
-
 func activate(value: bool) -> void:
 	isActive = value
 	Interactions.nearInteractable = value

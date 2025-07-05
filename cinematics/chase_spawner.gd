@@ -12,7 +12,7 @@ var enemies: Array[Enemy]
 
 
 func _process(_delta) -> void:
-	if EventHandler.finalCinematic:
+	if Game.state == Game.State.FINALE:
 		EventHandler.finalCinematic = false
 		spawn()
 

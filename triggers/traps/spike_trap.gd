@@ -10,10 +10,6 @@ const MAX_FRAME: int = 2
 var isAnimating: bool
 
 
-func _ready() -> void:
-	super._ready()
-
-
 func _process(_delta) -> void:
 	if isAnimating:
 		sprite.frame += 1

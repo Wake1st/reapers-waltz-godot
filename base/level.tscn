@@ -1,0 +1,284 @@
+[gd_scene load_steps=18 format=3 uid="uid://br4nhvrsgs42"]
+
+[ext_resource type="Script" uid="uid://dg1w42n7ub8yv" path="res://base/level.gd" id="1_bchiw"]
+[ext_resource type="PackedScene" uid="uid://g342aflm262l" path="res://map/map.tscn" id="2_1d0yq"]
+[ext_resource type="PackedScene" uid="uid://dlei3epj57b8k" path="res://ui/tapestry.tscn" id="2_noisv"]
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="3_2lmvk"]
+[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="3_6a30x"]
+[ext_resource type="PackedScene" uid="uid://cd6j42v2fgf52" path="res://characters/enemy.tscn" id="4_7ouw1"]
+[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/dialogue.tscn" id="4_uujxl"]
+[ext_resource type="PackedScene" uid="uid://c34myad6mq8py" path="res://triggers/event_trigger.tscn" id="5_hsm2m"]
+[ext_resource type="PackedScene" uid="uid://ch1yuxlniflad" path="res://triggers/traps/crush_trap.tscn" id="6_noisv"]
+[ext_resource type="PackedScene" uid="uid://ci5ncmwddrruf" path="res://triggers/traps/spike_trap.tscn" id="7_6a30x"]
+[ext_resource type="PackedScene" uid="uid://beasrffqb4gky" path="res://triggers/traps/water_trap.tscn" id="8_uujxl"]
+[ext_resource type="PackedScene" uid="uid://c6v7tsednkcu5" path="res://triggers/traps/fall_trap.tscn" id="9_2lmvk"]
+[ext_resource type="PackedScene" uid="uid://b7ymyqxfw8lnt" path="res://cinematics/chase_spawner.tscn" id="13_6a30x"]
+[ext_resource type="PackedScene" uid="uid://c3k0ppgg5ucba" path="res://triggers/interactable.tscn" id="14_6mclh"]
+[ext_resource type="Texture2D" uid="uid://35rlscph1fwa" path="res://assets/images/sword.png" id="15_n3efd"]
+[ext_resource type="Texture2D" uid="uid://bav66xewh5sea" path="res://assets/images/amulet.png" id="16_7q8fg"]
+[ext_resource type="Texture2D" uid="uid://cuhxsteag010t" path="res://assets/images/music_box.png" id="17_3mg4k"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_bchiw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Tapestry" parent="CanvasLayer" instance=ExtResource("2_noisv")]
+metadata/_edit_use_anchors_ = true
+
+[node name="InteractText" parent="CanvasLayer" instance=ExtResource("3_6a30x")]
+metadata/_edit_use_anchors_ = true
+
+[node name="SwordDialogue" parent="CanvasLayer" instance=ExtResource("4_uujxl")]
+questionText = "There’s a sword stuck into the ground here, touch it?"
+responseText = "As you touch the sword the world around you fades to a shimmering, glassy vision. It's the same room but not in the same time. You see a figure straining under the weight of an immense pillar of stone, leveraging his sword against the ground to hold up the crushing weight as a lithe feminine figure in simple brown robes frantically scuttles away from underneath it. You see the seed of a tear glinting in his eye before the world is shaken by a resounding crash."
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicDialogue" parent="CanvasLayer" instance=ExtResource("4_uujxl")]
+type = 1
+questionText = "A music box sits closed on the floor, open it?"
+responseText = "As you open the music box a sweeping symphony surrounds you and the world fades to a vision of this room in a different time. A woman who looks barely out of her adolescence cradles a music box. She radiates a defiantly hopeful energy as she prepares herself to leave the room. She mutters to herself “If i’m here only to die then I shall face it on my own terms” abandoning the music box she strides out of the room. A few seconds of silence pass before the echoing  halls are filled with the sound of a scuffle before falling eerily quiet once more."
+metadata/_edit_use_anchors_ = true
+
+[node name="AmuletDialogue" parent="CanvasLayer" instance=ExtResource("4_uujxl")]
+type = 2
+questionText = "An amulet lies on the ground here, surrounded by a makeshift shrine to a god you don’t recognise, touch the amulet?"
+responseText = "As you touch the amulet the world around you is consumed by a blinding light. When the light recedes you see the shrine in a different time, what appears to be a man of the cloth prostrate before his shrine, clutching the amulet muttering prayers in a language long lost to time. He is so engrossed in his worship he fails to notice the creature approaching from around the corner. You try to call out to him, to warn him but the sound falls dead in your throat. There is nothing you can do but watch as this creature of the darkness tears him limb from limb."
+metadata/_edit_use_anchors_ = true
+
+[node name="Map" parent="." instance=ExtResource("2_1d0yq")]
+position = Vector2(2001, 1363)
+
+[node name="Player" parent="." instance=ExtResource("3_2lmvk")]
+
+[node name="CrushTraps" type="Node2D" parent="."]
+
+[node name="CrushTrap" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(817, 211)
+
+[node name="CrushTrap2" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(945, 275)
+
+[node name="CrushTrap3" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1073, 147)
+
+[node name="CrushTrap4" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1137, 339)
+
+[node name="CrushTrap5" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1265, 211)
+
+[node name="CrushTrap6" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1457, 275)
+
+[node name="CrushTrap7" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1777, 211)
+
+[node name="CrushTrap8" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1457, 83)
+
+[node name="CrushTrap9" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1521, 83)
+
+[node name="CrushTrap10" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1585, 19)
+
+[node name="CrushTrap11" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1713, -45)
+
+[node name="CrushTrap12" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1521, -173)
+
+[node name="CrushTrap13" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1649, -301)
+
+[node name="CrushTrap14" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(1457, -429)
+
+[node name="CrushTrap15" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(2161, -173)
+
+[node name="CrushTrap16" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(2353, 83)
+
+[node name="CrushTrap17" parent="CrushTraps" instance=ExtResource("6_noisv")]
+position = Vector2(2097, 211)
+
+[node name="SpikeTraps" type="Node2D" parent="."]
+
+[node name="SpikeTrap" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1073, 755)
+
+[node name="SpikeTrap3" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1073, 755)
+
+[node name="SpikeTrap2" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1393, 883)
+
+[node name="SpikeTrap5" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1521, 755)
+
+[node name="SpikeTrap6" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1201, 947)
+
+[node name="SpikeTrap17" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1329, 1203)
+
+[node name="SpikeTrap18" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1073, 1139)
+
+[node name="SpikeTrap19" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(945, 1267)
+
+[node name="SpikeTrap20" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(689, 1139)
+
+[node name="SpikeTrap21" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(753, 1331)
+
+[node name="SpikeTrap22" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(881, 1523)
+
+[node name="SpikeTrap23" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1137, 1523)
+
+[node name="SpikeTrap24" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1201, 1715)
+
+[node name="SpikeTrap4" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1585, 947)
+
+[node name="SpikeTrap7" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1777, 819)
+
+[node name="SpikeTrap8" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1969, 755)
+
+[node name="SpikeTrap9" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(2097, 883)
+
+[node name="SpikeTrap10" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1905, 947)
+
+[node name="SpikeTrap11" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(2097, 1203)
+
+[node name="SpikeTrap12" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1969, 1459)
+
+[node name="SpikeTrap13" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1841, 1587)
+
+[node name="SpikeTrap14" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1649, 1459)
+
+[node name="SpikeTrap16" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1457, 1587)
+
+[node name="SpikeTrap15" parent="SpikeTraps" instance=ExtResource("7_6a30x")]
+position = Vector2(1649, 1715)
+
+[node name="WaterTraps" type="Node2D" parent="."]
+
+[node name="WaterTrap" parent="WaterTraps" instance=ExtResource("8_uujxl")]
+position = Vector2(-207, 1363)
+size = Vector2(192, 384)
+
+[node name="WaterTrap2" parent="WaterTraps" instance=ExtResource("8_uujxl")]
+position = Vector2(465, 2291)
+size = Vector2(128, 320)
+
+[node name="WaterTrap3" parent="WaterTraps" instance=ExtResource("8_uujxl")]
+position = Vector2(593, 2227)
+size = Vector2(128, 192)
+
+[node name="WaterTrap4" parent="WaterTraps" instance=ExtResource("8_uujxl")]
+position = Vector2(753, 2291)
+size = Vector2(192, 64)
+
+[node name="WaterTrap5" parent="WaterTraps" instance=ExtResource("8_uujxl")]
+position = Vector2(913, 2227)
+size = Vector2(128, 192)
+
+[node name="WaterTrap6" parent="WaterTraps" instance=ExtResource("8_uujxl")]
+position = Vector2(1009, 2259)
+size = Vector2(64, 256)
+
+[node name="PitTraps" type="Node2D" parent="."]
+
+[node name="FallTrap" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(1777, 915)
+size = Vector2(192, 128)
+
+[node name="FallTrap2" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(1649, 1203)
+size = Vector2(576, 448)
+
+[node name="FallTrap3" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(1201, 1363)
+size = Vector2(320, 128)
+
+[node name="FallTrap4" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(1393, 1459)
+size = Vector2(448, 64)
+
+[node name="FallTrap5" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(2193, 2643)
+size = Vector2(384, 128)
+
+[node name="FallTrap6" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(2641, 2899)
+size = Vector2(128, 256)
+
+[node name="FallTrap7" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(2865, 3347)
+size = Vector2(576, 128)
+
+[node name="FallTrap8" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(2097, 2739)
+size = Vector2(576, 64)
+
+[node name="FallTrap9" parent="PitTraps" instance=ExtResource("9_2lmvk")]
+position = Vector2(2193, 3091)
+size = Vector2(768, 640)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_7ouw1")]
+position = Vector2(1438, 2076)
+patrolPoints = Array[Vector2]([Vector2(1438, 2076), Vector2(358, 2087)])
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_7ouw1")]
+position = Vector2(1763, 2521)
+patrolPoints = Array[Vector2]([Vector2(1751, 3485), Vector2(3228, 3479), Vector2(3211, 3145), Vector2(2757, 3151), Vector2(2766, 2527), Vector2(1763, 2521)])
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("4_7ouw1")]
+position = Vector2(2921, 2670)
+patrolPoints = Array[Vector2]([Vector2(2939, 2147), Vector2(2470, 2132), Vector2(2494, 2672), Vector2(2921, 2670)])
+
+[node name="ChaseTrigger" parent="." instance=ExtResource("5_hsm2m")]
+position = Vector2(4423, 1747)
+
+[node name="ChaseSpawner" parent="." instance=ExtResource("13_6a30x")]
+
+[node name="SwordInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("14_6mclh")]
+position = Vector2(2566, 208)
+image = ExtResource("15_n3efd")
+popup = NodePath("../CanvasLayer/SwordDialogue")
+
+[node name="AmuletInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("14_6mclh")]
+position = Vector2(674, 2439)
+image = ExtResource("16_7q8fg")
+popup = NodePath("../CanvasLayer/AmuletDialogue")
+
+[node name="MusicInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("14_6mclh")]
+position = Vector2(2612, 1199)
+image = ExtResource("17_3mg4k")
+popup = NodePath("../CanvasLayer/MusicDialogue")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

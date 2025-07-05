@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="reapers-waltz"
+run/main_scene="uid://3xo3orn0ay54"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=30
 config/icon="res://icon.svg"

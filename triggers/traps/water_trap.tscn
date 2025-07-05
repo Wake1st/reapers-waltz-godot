@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://b1it3hpyngpf8" path="res://assets/audio/sinkWater2.ogg" id="1_k2sv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8g3l"]
-size = Vector2(64, 64)
+size = Vector2(128, 192)
 
 [node name="WaterTrap" type="Area2D"]
 script = ExtResource("1_75jv3")
