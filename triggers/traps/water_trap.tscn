@@ -8,11 +8,12 @@ size = Vector2(128, 192)
 
 [node name="WaterTrap" type="Area2D"]
 script = ExtResource("1_75jv3")
+buffer = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d8g3l")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_k2sv7")
 volume_db = 6.0
 pitch_scale = 0.24

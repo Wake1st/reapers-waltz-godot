@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://br4nhvrsgs42"]
+[gd_scene load_steps=19 format=3 uid="uid://br4nhvrsgs42"]
 
 [ext_resource type="Script" uid="uid://dg1w42n7ub8yv" path="res://base/level.gd" id="1_bchiw"]
 [ext_resource type="PackedScene" uid="uid://g342aflm262l" path="res://map/map.tscn" id="2_1d0yq"]
+[ext_resource type="PackedScene" uid="uid://bici8mck7n64w" path="res://base/enemy_audio_player.tscn" id="2_n3efd"]
 [ext_resource type="PackedScene" uid="uid://dlei3epj57b8k" path="res://ui/tapestry.tscn" id="2_noisv"]
 [ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="3_2lmvk"]
 [ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="3_6a30x"]
@@ -21,12 +22,13 @@
 [node name="Level" type="Node2D"]
 script = ExtResource("1_bchiw")
 
+[node name="EnemyAudioPlayer" parent="." instance=ExtResource("2_n3efd")]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.2
 one_shot = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Tapestry" parent="CanvasLayer" instance=ExtResource("2_noisv")]
 metadata/_edit_use_anchors_ = true
@@ -187,64 +189,79 @@ position = Vector2(1649, 1715)
 
 [node name="WaterTrap" parent="WaterTraps" instance=ExtResource("8_uujxl")]
 position = Vector2(-207, 1363)
-size = Vector2(192, 384)
+buffer = 28.0
+size = Vector2(200, 392)
 
 [node name="WaterTrap2" parent="WaterTraps" instance=ExtResource("8_uujxl")]
 position = Vector2(465, 2291)
+buffer = 28.0
 size = Vector2(128, 320)
 
 [node name="WaterTrap3" parent="WaterTraps" instance=ExtResource("8_uujxl")]
 position = Vector2(593, 2227)
+buffer = 28.0
 size = Vector2(128, 192)
 
 [node name="WaterTrap4" parent="WaterTraps" instance=ExtResource("8_uujxl")]
 position = Vector2(753, 2291)
+buffer = 28.0
 size = Vector2(192, 64)
 
 [node name="WaterTrap5" parent="WaterTraps" instance=ExtResource("8_uujxl")]
 position = Vector2(913, 2227)
+buffer = 28.0
 size = Vector2(128, 192)
 
 [node name="WaterTrap6" parent="WaterTraps" instance=ExtResource("8_uujxl")]
 position = Vector2(1009, 2259)
+buffer = 28.0
 size = Vector2(64, 256)
 
 [node name="PitTraps" type="Node2D" parent="."]
 
 [node name="FallTrap" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(1777, 915)
-size = Vector2(192, 128)
+buffer = 28.0
+size = Vector2(192, 136)
 
 [node name="FallTrap2" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(1649, 1203)
+buffer = 28.0
 size = Vector2(576, 448)
 
 [node name="FallTrap3" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(1201, 1363)
+buffer = 28.0
 size = Vector2(320, 128)
 
 [node name="FallTrap4" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(1393, 1459)
+buffer = 28.0
 size = Vector2(448, 64)
 
 [node name="FallTrap5" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(2193, 2643)
+buffer = 28.0
 size = Vector2(384, 128)
 
 [node name="FallTrap6" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(2641, 2899)
+buffer = 28.0
 size = Vector2(128, 256)
 
 [node name="FallTrap7" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(2865, 3347)
+buffer = 28.0
 size = Vector2(576, 128)
 
 [node name="FallTrap8" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(2097, 2739)
+buffer = 28.0
 size = Vector2(576, 64)
 
 [node name="FallTrap9" parent="PitTraps" instance=ExtResource("9_2lmvk")]
 position = Vector2(2193, 3091)
+buffer = 28.0
 size = Vector2(768, 640)
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -262,9 +279,12 @@ position = Vector2(2921, 2670)
 patrolPoints = Array[Vector2]([Vector2(2939, 2147), Vector2(2470, 2132), Vector2(2494, 2672), Vector2(2921, 2670)])
 
 [node name="ChaseTrigger" parent="." instance=ExtResource("5_hsm2m")]
-position = Vector2(4423, 1747)
+position = Vector2(5133, 1747)
 
-[node name="ChaseSpawner" parent="." instance=ExtResource("13_6a30x")]
+[node name="ChaseSpawner" parent="ChaseTrigger" node_paths=PackedStringArray("parent") instance=ExtResource("13_6a30x")]
+unique_name_in_owner = true
+position = Vector2(-1340, 0)
+parent = NodePath("../../Enemies")
 
 [node name="SwordInteractable" parent="." node_paths=PackedStringArray("popup") instance=ExtResource("14_6mclh")]
 position = Vector2(2566, 208)

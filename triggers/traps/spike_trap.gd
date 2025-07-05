@@ -5,7 +5,7 @@ extends Trigger
 const MAX_FRAME: int = 2
 
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 var isAnimating: bool
 

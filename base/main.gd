@@ -42,7 +42,11 @@ func _handle_credits_selected() -> void:
 	credits.open()
 
 func _handle_play_selected() -> void:
-	cutscene.start()
+	if OS.is_debug_build():
+		cutscene.visible = false
+		Game.state = Game.State.SETUP
+	else:
+		cutscene.start()
 
 func _handle_cutscene_finished() -> void:
 	Game.state = Game.State.SETUP

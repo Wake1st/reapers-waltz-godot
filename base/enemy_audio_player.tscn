@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bici8mck7n64w"]
+
+[ext_resource type="AudioStream" uid="uid://b4v5o3hvkwang" path="res://assets/audio/enemy.ogg" id="1_402c1"]
+[ext_resource type="Script" uid="uid://d2b4qlloclwed" path="res://base/enemy_audio_player.gd" id="2_br7iq"]
+
+[node name="EnemyAudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_402c1")
+script = ExtResource("2_br7iq")

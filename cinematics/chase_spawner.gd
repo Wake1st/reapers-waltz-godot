@@ -4,16 +4,18 @@ extends Node2D
 
 const ENEMY: PackedScene = preload("res://characters/enemy.tscn")
 const INESCAPABLE: float = 5000.0
-const SPREAD: float = 96.0
+const SPREAD: float = 60.0
 
 @export var spawn_count: int = 4
+@export var parent: Node2D
 
+var triggered: bool 
 var enemies: Array[Enemy]
 
 
 func _process(_delta) -> void:
-	if Game.state == Game.State.FINALE:
-		EventHandler.finalCinematic = false
+	if Game.state == Game.State.FINALE && !triggered:
+		triggered = true
 		spawn()
 
 
@@ -46,10 +48,14 @@ func spawn() -> void:
 		]
 		enemy.pursueDistance = INESCAPABLE
 		enemy.speed = 160
-		add_child(enemy)
+		parent.add_child(enemy)
+		enemy.global_position = global_position + Vector2(
+			randf_range(-SPREAD, SPREAD),
+			randf_range(-SPREAD, SPREAD)
+		)
 
 
 func despawn() -> void:
 	for enemy in enemies:
-		remove_child(enemy)
+		parent.remove_child(enemy)
 		enemy.queue_free()

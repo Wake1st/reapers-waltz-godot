@@ -10,11 +10,11 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 - [x] actors
 	- [x] player
 	- [x] enemy
-- [ ] collisions
+- [x] collisions
 	- [x] triggers
 	- [x] enemy
 	- [x] dialogue
-	- [ ] walls
+	- [x] walls
 - [x] moving camera
 - [x] final chase
 - [x] achievements
@@ -28,8 +28,8 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 	- [x] sfx
 	- [ ] music
 - [ ] level
-	- [ ] death record
-	- [ ] loading
+	- [x] death record
+	- [x] loading
 	- [ ] win state
 	- [ ] exit
 - [ ] lighting
