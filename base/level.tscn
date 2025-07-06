@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dlei3epj57b8k" path="res://ui/tapestry.tscn" id="2_noisv"]
 [ext_resource type="AudioStream" uid="uid://hogs1ndhw0p4" path="res://assets/music/requiem.wav" id="2_y7s5c"]
 [ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="3_2lmvk"]
-[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="3_6a30x"]
+[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/popup/interact_text.tscn" id="3_6a30x"]
 [ext_resource type="PackedScene" uid="uid://cd6j42v2fgf52" path="res://characters/enemy.tscn" id="4_7ouw1"]
-[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/dialogue.tscn" id="4_uujxl"]
+[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/popup/dialogue.tscn" id="4_uujxl"]
 [ext_resource type="PackedScene" uid="uid://c34myad6mq8py" path="res://triggers/event_trigger.tscn" id="5_hsm2m"]
-[ext_resource type="PackedScene" uid="uid://dtew17nuht3uf" path="res://ui/door_notification.tscn" id="6_3mg4k"]
+[ext_resource type="PackedScene" uid="uid://dtew17nuht3uf" path="res://ui/popup/door_notification.tscn" id="6_3mg4k"]
 [ext_resource type="PackedScene" uid="uid://ch1yuxlniflad" path="res://triggers/traps/crush_trap.tscn" id="6_noisv"]
 [ext_resource type="PackedScene" uid="uid://ci5ncmwddrruf" path="res://triggers/traps/spike_trap.tscn" id="7_6a30x"]
 [ext_resource type="PackedScene" uid="uid://beasrffqb4gky" path="res://triggers/traps/water_trap.tscn" id="8_uujxl"]
@@ -27,7 +27,7 @@ script = ExtResource("1_bchiw")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_y7s5c")
-volume_db = 6.0
+volume_db = 8.0
 
 [node name="EnemyAudioPlayer" parent="." instance=ExtResource("2_n3efd")]
 

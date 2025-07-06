@@ -27,7 +27,6 @@ func _process(_delta) -> void:
 
 func _animate_death() -> void:
 	# play unique animation
-	print("timer: ", timer.time_left)
 	match Death.active:
 		Death.Type.NONE:
 			return

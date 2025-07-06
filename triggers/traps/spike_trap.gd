@@ -24,6 +24,8 @@ func _process(_delta) -> void:
 
 func activate() -> void:
 	isAnimating = true
+	audio.pitch_scale = randf_range(0.9, 1.1)
+	audio.volume_db = randf_range(-1, 1)
 	audio.play()
 
 

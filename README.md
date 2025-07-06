@@ -42,5 +42,5 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 - [x] outro sequence
 - [x] "thanks for playing" screen
 - [x] add music
+- [x] tilemap
 - [ ] lighting
-- [ ] tilemap

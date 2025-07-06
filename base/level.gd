@@ -3,7 +3,7 @@ extends Node2D
 
 
 @onready var player: Player = $Player
-@onready var deathTimer: Timer = $DeathTimer
+@onready var timer: Timer = $DeathTimer
 @onready var music: AudioStreamPlayer = $Music
 @onready var canvas: CanvasLayer = $CanvasLayer
 
@@ -25,14 +25,13 @@ func _process(_delta) -> void:
 			music.stop()
 		Game.State.SETUP:
 			_reset_level()
-			if OS.is_debug_build():
-				player.speed = 900
 			Game.state = Game.State.PLAY
+			#if OS.is_debug_build():
+				#player.speed = 400
 		Game.State.PLAY:
 			_check_enemies()
 		Game.State.DEATH:
 			_animate_death()
-			player.isFrozen = true
 		Game.State.FINALE:
 			chase_spawner.check_pursuit(player.get_actor_position())
 		Game.State.END:
@@ -42,18 +41,15 @@ func _process(_delta) -> void:
 
 
 func _animate_death() -> void:
-	# play unique animation
-	match Death.active:
-		Death.Type.NONE:
-			return
-		Death.Type.DROWN, Death.Type.FALL, Death.Type.CRUSH:
-			player.visible = false
-		Death.Type.SPIKE:
-			player.actor.rotate(randf_range(-PI/5, PI/5))
-	
-	# should run once
-	deathTimer.start()
-	Death.active = Death.Type.NONE
+	if Death.active == Death.Type.NONE:
+		return
+	else:
+		# play unique animation
+		player.animate_death()
+		
+		# should run once
+		timer.start()
+		Death.active = Death.Type.NONE
 
 func _reset_level() -> void:
 	player.reset(Vector2.ZERO)

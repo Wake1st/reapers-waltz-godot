@@ -26,8 +26,8 @@ func _process(_delta) -> void:
 
 func _fade_out() -> void:
 	var tween = create_tween()
-	tween.tween_property(blank, "color:a", 1.0, 4.4
-		).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(blank, "color:a", 1.0, 3.4
+		).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	tween.tween_callback(_stage_finished)
 
 func _stage_finished() -> void:

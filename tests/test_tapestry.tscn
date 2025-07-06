@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dlei3epj57b8k" path="res://ui/tapestry.tscn" id="1_rd2bv"]
 [ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="2_ve7bk"]
 [ext_resource type="PackedScene" uid="uid://cd6j42v2fgf52" path="res://characters/enemy.tscn" id="3_4qajd"]
-[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/dialogue.tscn" id="3_lmpc7"]
-[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="4_8bjkw"]
+[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/popup/dialogue.tscn" id="3_lmpc7"]
+[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/popup/interact_text.tscn" id="4_8bjkw"]
 [ext_resource type="PackedScene" uid="uid://c3k0ppgg5ucba" path="res://triggers/interactable.tscn" id="4_g67dk"]
 [ext_resource type="PackedScene" uid="uid://ch1yuxlniflad" path="res://triggers/traps/crush_trap.tscn" id="5_eeyff"]
 [ext_resource type="PackedScene" uid="uid://ci5ncmwddrruf" path="res://triggers/traps/spike_trap.tscn" id="6_bxnxo"]
@@ -79,6 +79,6 @@ position = Vector2(-57, -260)
 position = Vector2(60, -259)
 
 [node name="FallTrap" parent="." instance=ExtResource("14_y4uug")]
-position = Vector2(172, -260)
+position = Vector2(562, -477)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

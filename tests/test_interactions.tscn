@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://q7fgrattwy03"]
 
-[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/dialogue.tscn" id="1_ncuk8"]
-[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/interact_text.tscn" id="1_xkolb"]
+[ext_resource type="PackedScene" uid="uid://6lypf7h1xle8" path="res://ui/popup/dialogue.tscn" id="1_ncuk8"]
+[ext_resource type="PackedScene" uid="uid://dttnipyqq4qni" path="res://ui/popup/interact_text.tscn" id="1_xkolb"]
 [ext_resource type="PackedScene" uid="uid://c3k0ppgg5ucba" path="res://triggers/interactable.tscn" id="2_j5o7t"]
 [ext_resource type="Texture2D" uid="uid://cuhxsteag010t" path="res://assets/images/music_box.png" id="3_d4uww"]
 [ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="4_d4uww"]
