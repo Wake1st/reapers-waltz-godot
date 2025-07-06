@@ -9,7 +9,7 @@ enum State {
 	PAUSE,  # pause menu
 	DEATH,  # death animations
 	FINALE, # final sequence
-	OUTRO,  # exiting cinematic?
+	OUTRO,  # exiting cinematic
 	END,    # fin, credits
 }
 

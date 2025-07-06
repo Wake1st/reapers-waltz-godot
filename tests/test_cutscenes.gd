@@ -1,7 +1,8 @@
 extends Control
 
 
-@onready var cutscene: Cutscene = $Cutscene
+#@onready var cutscene: Intro = $Intro
+@onready var cutscene: Outro = $Outro
 
 
 func _ready() -> void:

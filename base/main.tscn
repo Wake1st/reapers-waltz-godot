@@ -1,24 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://3xo3orn0ay54"]
+[gd_scene load_steps=11 format=3 uid="uid://3xo3orn0ay54"]
 
 [ext_resource type="Script" uid="uid://l8h4goqhv8g0" path="res://base/main.gd" id="1_wbdts"]
 [ext_resource type="PackedScene" uid="uid://djths2blh8y0a" path="res://ui/menu/pause_menu.tscn" id="2_5e13l"]
+[ext_resource type="AudioStream" uid="uid://b3m2orfqfb0r4" path="res://assets/music/reaper_s waltz.wav" id="2_hychk"]
 [ext_resource type="PackedScene" uid="uid://br4nhvrsgs42" path="res://base/level.tscn" id="2_jo60l"]
-[ext_resource type="PackedScene" uid="uid://dsw5dcqc41xwn" path="res://ui/cutscene.tscn" id="3_jo60l"]
+[ext_resource type="PackedScene" uid="uid://dsw5dcqc41xwn" path="res://ui/intro.tscn" id="3_jo60l"]
 [ext_resource type="PackedScene" uid="uid://ycyfqmiw4s6t" path="res://ui/menu/main_menu.tscn" id="4_h6pip"]
 [ext_resource type="PackedScene" uid="uid://dqyego2hge5s3" path="res://ui/menu/credit_menu.tscn" id="5_oioov"]
 [ext_resource type="PackedScene" uid="uid://b8h5ahh202q6k" path="res://ui/menu/achievement_menu.tscn" id="6_hychk"]
+[ext_resource type="PackedScene" uid="uid://dxrmcvwigvj8t" path="res://ui/outro.tscn" id="8_h6pip"]
+[ext_resource type="PackedScene" uid="uid://dhdg6q74c25xs" path="res://ui/menu/end_menu.tscn" id="9_oioov"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_wbdts")
 
-[node name="Level" parent="." instance=ExtResource("2_jo60l")]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hychk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_5e13l")]
 unique_name_in_owner = true
 
-[node name="Cutscene" parent="CanvasLayer" instance=ExtResource("3_jo60l")]
+[node name="Intro" parent="CanvasLayer" instance=ExtResource("3_jo60l")]
+unique_name_in_owner = true
+
+[node name="Outro" parent="CanvasLayer" instance=ExtResource("8_h6pip")]
 unique_name_in_owner = true
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("4_h6pip")]
@@ -29,3 +36,10 @@ unique_name_in_owner = true
 
 [node name="AchievementMenu" parent="CanvasLayer" instance=ExtResource("6_hychk")]
 unique_name_in_owner = true
+
+[node name="EndMenu" parent="CanvasLayer" instance=ExtResource("9_oioov")]
+unique_name_in_owner = true
+
+[node name="Level" parent="." instance=ExtResource("2_jo60l")]
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

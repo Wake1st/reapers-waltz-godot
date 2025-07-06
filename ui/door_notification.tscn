@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dttnipyqq4qni"]
+[gd_scene load_steps=2 format=3 uid="uid://dtew17nuht3uf"]
 
-[ext_resource type="Script" uid="uid://dj4fhst3m574n" path="res://ui/interact_text.gd" id="1_vccem"]
+[ext_resource type="Script" uid="uid://bybn4gblw5i6u" path="res://ui/door_notification.gd" id="1_4rd0c"]
 
-[node name="InteractText" type="Control"]
+[node name="DoorNotification" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_vccem")
+script = ExtResource("1_4rd0c")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -32,6 +32,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
 theme_override_font_sizes/font_size = 76
-text = "select 'X' to open dialogue"
+text = "somewhere a door has opened..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -24,14 +24,23 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 	- [x] tapestry of death
 	- [x] main menu
 	- [x] pause
-- [ ] sounds
-	- [x] sfx
-	- [ ] music
-- [ ] level
+- [x] level
 	- [x] death record
 	- [x] loading
-	- [ ] win state
-	- [ ] exit
+	- [x] win state
+	- [x] exit
+- [x] sounds
+	- [x] sfx
+	- [x] music
 - [ ] lighting
-- [ ] vfx
-	- [ ] particles
+
+
+## TODO
+
+- [x] achievements menu
+- [x] door
+- [x] outro sequence
+- [x] "thanks for playing" screen
+- [x] add music
+- [ ] lighting
+- [ ] tilemap

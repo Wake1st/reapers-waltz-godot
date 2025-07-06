@@ -1,4 +1,4 @@
-class_name Cutscene
+class_name Intro
 extends Control
 
 
@@ -30,6 +30,7 @@ var tween: Tween
 
 
 func start() -> void:
+	reset()
 	_fade_in()
 
 

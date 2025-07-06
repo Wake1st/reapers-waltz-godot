@@ -31,28 +31,29 @@ var target: Vector2
 
 
 func _physics_process(delta) -> void:
-	var direction := Vector2.ZERO
-	match (state):
-		EnemyState.IDLE:
-			idleTimer -= delta
-			if (idleTimer <= 0):
-				idleTimer = IDLE_TIME
-				pointIndex = (pointIndex + 1) % patrolPoints.size()
-				target = patrolPoints[pointIndex]
-				state = EnemyState.PATROL
-		EnemyState.PATROL:
-			direction = _get_direction()
-			actor.move(direction * speed * delta)
-			
-			# check for arrival
-			if (actor.global_position.distance_to(target) < PATROL_DISTANCE):
-				actor.global_position = target
-				state = EnemyState.IDLE
-		EnemyState.PURSUIT:
-			direction = _get_direction()
-			actor.move(direction * speed * delta)
-	
-	actor.animate(direction, delta)
+	if Game.state == Game.State.PLAY || Game.state == Game.State.FINALE:
+		var direction := Vector2.ZERO
+		match (state):
+			EnemyState.IDLE:
+				idleTimer -= delta
+				if (idleTimer <= 0):
+					idleTimer = IDLE_TIME
+					pointIndex = (pointIndex + 1) % patrolPoints.size()
+					target = patrolPoints[pointIndex]
+					state = EnemyState.PATROL
+			EnemyState.PATROL:
+				direction = _get_direction()
+				actor.move(direction * speed * delta)
+				
+				# check for arrival
+				if (actor.global_position.distance_to(target) < PATROL_DISTANCE):
+					actor.global_position = target
+					state = EnemyState.IDLE
+			EnemyState.PURSUIT:
+				direction = _get_direction()
+				actor.move(direction * speed * delta)
+		
+		actor.animate(direction, delta)
 
 
 func reset() -> void:

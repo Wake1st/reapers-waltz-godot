@@ -14,4 +14,4 @@ extends Control
 
 
 func reset() -> void:
-	check_box.toggle_mode = Achievements.achievements[type]
+	check_box.button_pressed = Achievements.achievements[type]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dsw5dcqc41xwn"]
 
-[ext_resource type="Script" uid="uid://bnp7gn1wddae5" path="res://ui/cutscene.gd" id="1_8tbgj"]
+[ext_resource type="Script" uid="uid://bnp7gn1wddae5" path="res://ui/intro.gd" id="1_8tbgj"]
 [ext_resource type="Texture2D" uid="uid://dppbq6nval3ja" path="res://assets/images/Opening.png" id="1_hulut"]
 [ext_resource type="AudioStream" uid="uid://d08s4oddbjyey" path="res://assets/audio/death.ogg" id="3_3esgx"]
 [ext_resource type="AudioStream" uid="uid://ddi14b5r4asqc" path="res://assets/music/the rabbit hole.wav" id="4_6dir8"]
 
-[node name="Cutscene" type="Control"]
+[node name="Intro" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

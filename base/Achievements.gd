@@ -31,6 +31,7 @@ static func add(type: Type) -> void:
 	achievements[type] = true;
 	added = type
 
+
 static func all_achieved() -> bool:
 	for value in achievements.values():
 		if !value:

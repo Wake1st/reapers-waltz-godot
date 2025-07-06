@@ -14,6 +14,7 @@ const FRAME_SPEED: float = 0.15
 @onready var sprite: Sprite2D = $Sprite2D
 
 var frameCounter: float
+var movementVector: Vector2
 
 
 func move(vector: Vector2) -> void:
@@ -41,9 +42,3 @@ func animate(direction: Vector2, delta: float) -> void:
 			sprite.frame_coords.y = 2
 		elif (direction.x < 0.0):
 			sprite.frame_coords.y = 1
-
-
-func _process(_delta) -> void:
-	match Game.state:
-		Game.State.DEATH:
-			pass

@@ -57,5 +57,6 @@ func spawn() -> void:
 
 func despawn() -> void:
 	for enemy in enemies:
-		parent.remove_child(enemy)
-		enemy.queue_free()
+		if enemy != null:
+			parent.remove_child(enemy)
+			enemy.queue_free()

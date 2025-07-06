@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq8w32m0vrrmf"]
+
+[ext_resource type="Script" uid="uid://bcxn24onunbtp" path="res://tests/test_door.gd" id="1_1iygg"]
+[ext_resource type="PackedScene" uid="uid://dtew17nuht3uf" path="res://ui/door_notification.tscn" id="1_y41x1"]
+[ext_resource type="PackedScene" uid="uid://b83rhr2kewtb4" path="res://triggers/door.tscn" id="2_kn6yh"]
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="3_1jb22"]
+
+[node name="TestDoor" type="Node"]
+script = ExtResource("1_1iygg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DoorNotification" parent="CanvasLayer" instance=ExtResource("1_y41x1")]
+
+[node name="Door" parent="." instance=ExtResource("2_kn6yh")]
+position = Vector2(690, 218)
+
+[node name="Player" parent="." instance=ExtResource("3_1jb22")]
+position = Vector2(685, 542)
