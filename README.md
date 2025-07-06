@@ -44,3 +44,10 @@ Submission for the [Isekai Horror Jam](https://itch.io/jam/isekai-horror-jam) 20
 - [x] add music
 - [x] tilemap
 - [ ] lighting
+- [ ] masks for buttons
+
+
+## Fixes
+
+- [x] door z-layer needs to be lower than player
+- [ ] level music and tapestry are still active when on Game.End

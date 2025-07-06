@@ -11,7 +11,7 @@ script = ExtResource("1_3eadt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_evndh")
-volume_db = -3.0
+volume_db = -9.0
 
 [node name="Actor" parent="." instance=ExtResource("2_tory2")]
 collision_mask = 62

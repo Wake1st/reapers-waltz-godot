@@ -2,7 +2,7 @@ class_name Actor
 extends CharacterBody2D
 
 
-const FRAME_SPEED: float = 0.15
+const FRAME_SPEED: float = 0.12
 
 @export var isPlayer: bool = false
 @export var texture: Texture2D:

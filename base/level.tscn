@@ -65,6 +65,10 @@ metadata/_edit_use_anchors_ = true
 [node name="Map" parent="." instance=ExtResource("2_1d0yq")]
 position = Vector2(2001, 1363)
 
+[node name="Door" parent="." instance=ExtResource("19_7q8fg")]
+position = Vector2(3793, 1875)
+scale = Vector2(0.5, 0.5)
+
 [node name="Player" parent="." instance=ExtResource("3_2lmvk")]
 
 [node name="CrushTraps" type="Node2D" parent="."]
@@ -294,10 +298,6 @@ popup = NodePath("../CanvasLayer/AmuletDialogue")
 position = Vector2(2612, 1199)
 image = ExtResource("17_3mg4k")
 popup = NodePath("../CanvasLayer/MusicDialogue")
-
-[node name="Door" parent="." instance=ExtResource("19_7q8fg")]
-position = Vector2(3793, 1875)
-scale = Vector2(0.5, 0.5)
 
 [node name="OutroTrigger" parent="." instance=ExtResource("5_hsm2m")]
 position = Vector2(7390, 1747)

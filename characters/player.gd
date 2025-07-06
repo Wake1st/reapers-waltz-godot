@@ -14,18 +14,16 @@ var isFrozen: bool
 
 func _physics_process(delta) -> void:
 	# take control from user
-	if isFrozen || Game.state != Game.State.PLAY:
-		return
-	
-	var direction = InputHandler.get_direction()
-	
-	actor.animate(direction, delta)
-	if (direction != Vector2.ZERO):
-		actor.move(direction * speed * delta)
-		if !audio.playing:
-			audio.play()
-	else:
-		audio.stop()
+	if !isFrozen || Game.state == Game.State.PLAY:
+		var direction = InputHandler.get_direction()
+		
+		actor.animate(direction, delta)
+		if (direction != Vector2.ZERO):
+			actor.move(direction * speed * delta)
+			if !audio.playing:
+				audio.play()
+		else:
+			audio.stop()
 
 
 func reset(pos: Vector2) -> void:
