@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuf1bouv4mvo3"]
+
+[ext_resource type="Script" uid="uid://bo1drtdyk38jy" path="res://tests/test_enemies.gd" id="1_4qk4r"]
+[ext_resource type="PackedScene" uid="uid://cd6j42v2fgf52" path="res://characters/enemy.tscn" id="1_q61ln"]
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="2_flcpm"]
+
+[node name="TestEnemies" type="Node2D"]
+script = ExtResource("1_4qk4r")
+
+[node name="Enemy" parent="." instance=ExtResource("1_q61ln")]
+patrolPoints = Array[Vector2]([Vector2(-220, -100), Vector2(220, -100), Vector2(220, 100), Vector2(-220, 100)])
+
+[node name="Player" parent="." instance=ExtResource("2_flcpm")]
+position = Vector2(0, 156)

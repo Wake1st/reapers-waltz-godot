@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dttnipyqq4qni"]
+
+[ext_resource type="Script" uid="uid://dj4fhst3m574n" path="res://ui/popup/interact_text.gd" id="1_vccem"]
+
+[node name="InteractText" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vccem")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0768358, 0.0768358, 0.0768358, 0.941176)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
+theme_override_font_sizes/font_size = 76
+text = "select 'X' to open dialogue"
+horizontal_alignment = 1
+vertical_alignment = 1

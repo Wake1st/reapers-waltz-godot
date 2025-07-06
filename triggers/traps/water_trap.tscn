@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://beasrffqb4gky"]
+
+[ext_resource type="Script" uid="uid://ch43rjbaduf7u" path="res://triggers/traps/water_trap.gd" id="1_75jv3"]
+[ext_resource type="AudioStream" uid="uid://b1it3hpyngpf8" path="res://assets/audio/sinkWater2.ogg" id="1_k2sv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75jv3"]
+size = Vector2(128, 192)
+
+[node name="WaterTrap" type="Area2D"]
+script = ExtResource("1_75jv3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_75jv3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_k2sv7")
+volume_db = 2.0
+pitch_scale = 0.24
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

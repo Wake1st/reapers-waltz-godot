@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://ycyfqmiw4s6t"]
+
+[ext_resource type="Script" uid="uid://dm7ql17ifr022" path="res://ui/menu/main_menu.gd" id="1_8uxxo"]
+[ext_resource type="Texture2D" uid="uid://dl6kuj1xhnmaw" path="res://assets/ui/menu_background.png" id="1_t7e0r"]
+[ext_resource type="Texture2D" uid="uid://bnohq70k2iath" path="res://assets/ui/PLAY_final.png" id="3_ei257"]
+[ext_resource type="Texture2D" uid="uid://d3vfm2yv8lkp5" path="res://assets/ui/REQUIEM_final.png" id="4_ei257"]
+[ext_resource type="Texture2D" uid="uid://c0qj7cbhaekrc" path="res://assets/ui/CREDITS_final.png" id="4_p8ri8"]
+[ext_resource type="Texture2D" uid="uid://dywplu674h1ue" path="res://assets/ui/EXIT_final.png" id="5_ubpvv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_8uxxo")
+
+[node name="Panel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t7e0r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.5
+offset_top = -388.0
+offset_right = 256.5
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 72
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="PlayBtn" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("3_ei257")
+stretch_mode = 0
+
+[node name="AchieveBtn" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("4_ei257")
+stretch_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 72
+
+[node name="CreditsBtn" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("4_p8ri8")
+stretch_mode = 0
+
+[node name="ExitBtn" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("5_ubpvv")
+stretch_mode = 0
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/AchieveBtn" to="." method="_on_achieve_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/ExitBtn" to="." method="_on_exit_btn_pressed"]

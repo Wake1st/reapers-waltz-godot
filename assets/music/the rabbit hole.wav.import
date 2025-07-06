@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddi14b5r4asqc"
+path="res://.godot/imported/the rabbit hole.wav-de0ab20b30c9d3174b45c7cbbf63defd.sample"
+
+[deps]
+
+source_file="res://assets/music/the rabbit hole.wav"
+dest_files=["res://.godot/imported/the rabbit hole.wav-de0ab20b30c9d3174b45c7cbbf63defd.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

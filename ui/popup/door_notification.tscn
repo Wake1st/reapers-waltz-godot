@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtew17nuht3uf"]
+
+[ext_resource type="Script" uid="uid://bybn4gblw5i6u" path="res://ui/popup/door_notification.gd" id="1_4rd0c"]
+
+[node name="DoorNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4rd0c")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0768358, 0.0768358, 0.0768358, 0.941176)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.632137, 0.71, 0.0426, 1)
+theme_override_font_sizes/font_size = 76
+text = "somewhere a door has opened..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

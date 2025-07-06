@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://niba6dhqy3pv"]
+
+[ext_resource type="Script" uid="uid://b87q8lebb32hk" path="res://tests/test_finale.gd" id="1_adc70"]
+[ext_resource type="PackedScene" uid="uid://duhnl4cfaabcv" path="res://characters/player.tscn" id="2_uq5yn"]
+[ext_resource type="PackedScene" uid="uid://c34myad6mq8py" path="res://triggers/event_trigger.tscn" id="3_0c0po"]
+[ext_resource type="PackedScene" uid="uid://b7ymyqxfw8lnt" path="res://cinematics/chase_spawner.tscn" id="4_3lcwc"]
+
+[node name="TestFinale" type="Node2D"]
+script = ExtResource("1_adc70")
+
+[node name="Player" parent="." instance=ExtResource("2_uq5yn")]
+
+[node name="EventTrigger" parent="." instance=ExtResource("3_0c0po")]
+position = Vector2(281, 0)
+
+[node name="ChaseSpawner" parent="." instance=ExtResource("4_3lcwc")]
+position = Vector2(-1200, 0)
+spawn_count = 16

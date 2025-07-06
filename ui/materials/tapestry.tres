@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bfy3krr125mmu"]
+
+[ext_resource type="Shader" uid="uid://dnelboe2rjnma" path="res://ui/tapestry.gdshader" id="1_i75oq"]
+
+[resource]
+shader = ExtResource("1_i75oq")
+shader_parameter/transparency = 1.0
